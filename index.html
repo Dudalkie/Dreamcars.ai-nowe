@@ -11,30 +11,49 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f3f4f6;
-      color: #1a1a1a;
-    }
-    .hero-gradient {
-      background: linear-gradient(to bottom, rgba(20, 50, 90, 0.7), rgba(20, 50, 90, 0.9)), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=2000');
+      /* Fixed background image for the entire page to create a seamless flow */
+      background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=2000');
+      background-attachment: fixed;
       background-size: cover;
       background-position: center;
+      background-color: #0a1321;
+      color: #1a1a1a;
+      margin: 0;
     }
+    
+    /* Overlay that lightens as you scroll down for readability */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(10, 31, 59, 0.7) 0%, rgba(250, 250, 250, 0.92) 50%, rgba(250, 250, 250, 0.98) 100%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
     .font-oswald {
       font-family: 'Oswald', sans-serif;
     }
+    
     .car-card-bg {
-      background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
+      background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 100%);
     }
-    .btn-blue {
-      background-color: #1a4584;
+
+    /* Custom scrollbar for comparison modal */
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
     }
-    .btn-yellow {
-      background-color: #ffcc00;
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
     }
-    .reveal-section {
-      background: #e5e7eb;
-      border-top: 1px solid #d1d5db;
-      border-bottom: 1px solid #d1d5db;
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #ffcc00;
+      border-radius: 10px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 <script type="importmap">
